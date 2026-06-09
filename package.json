@@ -6,6 +6,7 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "new": "node scripts/new-writing.mjs",
     "dev": "astro dev --host",
     "build": "astro build",
     "preview": "astro preview",
