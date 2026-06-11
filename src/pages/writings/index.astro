@@ -1,0 +1,26 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro"
+import Prose from "@components/common/Prose.astro"
+import WritingCard from "@components/section/writings/WritingCard.astro"
+import { getWritings } from "@utils/getContent"
+
+const {
+  title = "Writings",
+  description = "A collection of writings on things worth exploring.",
+} = Astro.props
+
+const writingEntries = await getWritings()
+---
+
+<BaseLayout title={title} description={description}>
+  <Prose>
+    <h1>Writings</h1>
+    <div class="not-prose flex flex-col gap-y-8">
+      {
+        writingEntries.map((writingEntry) => (
+          <WritingCard writingEntry={writingEntry} />
+        ))
+      }
+    </div>
+  </Prose>
+</BaseLayout>
