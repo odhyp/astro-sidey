@@ -6,8 +6,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Disable TailwindCSS default color palette ----------------------------------------- */
 @theme {
+  /* Disable TailwindCSS default color palette */
   --color-*: initial;
 
   /* Animation */
