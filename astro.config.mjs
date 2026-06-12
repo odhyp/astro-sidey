@@ -11,6 +11,7 @@ import sitemap from "@astrojs/sitemap"
 import astroExpressiveCode from "astro-expressive-code"
 
 // Remark Rehype Plugins
+import rehypeExternalLinks from "rehype-external-links"
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs"
 import rehypeLightbox from "./src/plugins/rehype-lightbox.mjs"
 
@@ -25,7 +26,16 @@ export default defineConfig({
   integrations: [astroExpressiveCode(), mdx(), icon(), sitemap()],
   markdown: {
     remarkPlugins: [remarkReadingTime],
-    rehypePlugins: [rehypeLightbox],
+    rehypePlugins: [
+      rehypeLightbox,
+      [
+        rehypeExternalLinks,
+        {
+          target: "_blank",
+          rel: ["noopener", "noreferrer", "external"],
+        },
+      ],
+    ],
   },
   prefetch: {
     defaultStrategy: "viewport",
