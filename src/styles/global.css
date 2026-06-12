@@ -259,7 +259,7 @@
   }
 
   html {
-    @apply scroll-smooth font-sans;
+    @apply scroll-pt-8 scroll-smooth font-sans;
     scrollbar-gutter: stable;
   }
 
@@ -274,5 +274,19 @@
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
+  }
+
+  /* Heading Anchor */
+  .heading-anchor {
+    @apply decoration-muted-foreground/0! hover:decoration-muted-foreground/50!;
+  }
+
+  .heading-anchor::before {
+    @apply absolute -left-4 text-muted-foreground/25 transition-colors duration-200 ease-out;
+    content: "#";
+  }
+
+  .heading-anchor:hover::before {
+    @apply text-muted-foreground/75;
   }
 }

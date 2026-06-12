@@ -15,6 +15,8 @@ import { unified } from "@astrojs/markdown-remark"
 import rehypeExternalLinks from "rehype-external-links"
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs"
 import rehypeLightbox from "./src/plugins/rehype-lightbox.mjs"
+import rehypeSlug from "rehype-slug"
+import rehypeAutolinkHeadings from "rehype-autolink-headings"
 
 // Sidey Config
 import { sideyConfig } from "./sidey.config.ts"
@@ -30,6 +32,17 @@ export default defineConfig({
       remarkPlugins: [remarkReadingTime],
       rehypePlugins: [
         rehypeLightbox,
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: "wrap",
+            properties: {
+              className: ["heading-anchor"],
+              ariaLabel: "Link to section",
+            },
+          },
+        ],
         [
           rehypeExternalLinks,
           {
