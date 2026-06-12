@@ -25,10 +25,12 @@ export async function getContent<T extends CollectionKey>(
   const filtered = drafts ? items : items.filter(excludeDrafts)
   const sorted = sort
     ? filtered.sort((a, b) =>
-        sortByDateDesc(a.data.date ?? new Date(0), b.data.date ?? new Date(0))
+        sortByDateDesc(
+          "date" in a.data ? (a.data.date ?? new Date(0)) : new Date(0),
+          "date" in b.data ? (b.data.date ?? new Date(0)) : new Date(0)
+        )
       )
     : filtered
-
   return sorted
 }
 
