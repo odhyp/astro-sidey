@@ -1,0 +1,15 @@
+---
+interface Props {
+  src: string
+  alt: string
+}
+
+const { src, alt } = Astro.props
+---
+
+<figure>
+  <img src={src} alt={alt} data-lightbox />
+  <figcaption class="mt-2 text-center text-sm *:text-muted-foreground!">
+    <slot />
+  </figcaption>
+</figure>
