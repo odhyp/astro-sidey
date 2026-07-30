@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from "astro:transitions"
 import { config } from "@parseConfig"
 
 interface Props {
@@ -73,6 +72,3 @@ const canonicalURL = new URL(Astro.url.pathname, config.site.url)
 
 {/* Optional */}
 <meta name="robots" content="index, follow" />
-
-{/* View Transition API */}
-<ClientRouter />
