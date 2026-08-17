@@ -28,7 +28,7 @@ import { Icon } from "astro-icon/components"
 </div>
 
 <script>
-  const init = () => {
+  const lightboxInit = () => {
     const lightbox = document.getElementById("lightbox")!
     const lightboxImg = document.getElementById(
       "lightbox-img"
@@ -70,6 +70,5 @@ import { Icon } from "astro-icon/components"
     })
   }
 
-  // Runs on first load and after every View Transition navigation
-  document.addEventListener("astro:page-load", init)
+  lightboxInit()
 </script>
